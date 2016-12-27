@@ -4,7 +4,11 @@
 <head>
     <title>The MatriX</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" type="text/css" href="semantic.min.css">
     <link rel="stylesheet" type="text/css" href="./semantic/components/input.min.css">
     <link rel="stylesheet" type="text/css" href="./semantic/components/icon.min.css">
@@ -27,12 +31,12 @@
               <img src="./images/winner.jpg">
             </div>
             <div class="description">
-              <div class="ui large header">Congratulations! You Win</div>
+              <div class="ui large header" align="center">Congratulations! You Win</div>
             </div>
           </div>
           <div class="actions">
-            <div class="ui black deny button">
-              Yeah, Hurrrry!!!
+            <div class="ui black deny button" align="center">
+              Yeah, Hurrrry!!
             </div>
           </div>
         </div>
@@ -46,21 +50,33 @@
               <img src="./images/loser.jpg">
             </div>
             <div class="description">
-              <div class="ui large header">Sorry! You Lose</div>
+              <div class="ui large header" align="center">Sorry! You Lose</div>
             </div>
           </div>
           <div class="actions">
-            <div class="ui black deny button">
-              Nope! I'll try again...
+            <div class="ui black deny button" align="center">
+              Oops! I'll try again..
             </div>
           </div>
         </div>
         <div class="row" align="center">
-            <div class="ui large header column">
+            <!--<div class="ui large header column">
                 <h1>T</h1><h2>HE</h2>  <h1>M</h1><h2>ATRI</h2><h1 id="x">X</h1>
+            </div>-->
+            <div class="ui four item menu">
+              <a class="item rules"><i class="sidebar icon"></i>Rules</a>
+              <a class="item"><span class="ui active small inverted centered " id="search"><i class="search icon"></i> Search</span></a>
+              <a class="item live">
+                  <i class="user icon"></i>
+                  <!--<span id="me"></span>
+                  <span id="vs"></span>-->
+                  <span id="you"></span>&nbsp;
+                  <span id="opponent"></span>
+              </a>
+              <a class="item openchat"><i class="comments icon"></i>Chat</a>
             </div>
         </div>
-        <div class="four wide column">
+        <!--<div class="four wide column">
             <div class="ui card leftab">
                 <button id="search" class="ui button">Click to Search Player</button>
                 <div class="ui content">
@@ -79,10 +95,9 @@
                   </div>
                 </div>
             </div>
-
-        </div>
-        <div class="eight wide column">
-            <table id="chess_board" cellpadding="0" cellspacing="0" class="ui table">
+        </div>-->
+        <div class="sixteen wide column">
+            <table id="chess_board" cellpadding="0" cellspacing="0" class="ui table unstackable">
                 <tr>
                     <td id="A7"></td>
                     <td id="B7"></td>
@@ -148,42 +163,61 @@
                 </tr>
             </table>
         </div>
-        <div class="four wide column">
-            <div class="chat">
-                <div class="ui feed">
-                  <div class="event">
-                    <div class="label">
-                      <img src="./images/bot.png">
-                    </div>
-                    <div class="content">
-                      <div class="summary">
-                        <p>The MatriX Bot</p>
-                      </div>
-                      <div class="extra text">
-                          <p>
-                              Hello! Welcome to The MatriX. I'm The MatriX Bot, will update you for all matches results.
-                              You can message here, which would be readable for all connected user to this web app.
-                          </p>
-                          <h5>How to play</h5>
-                          <p>- Search player by 'Click to Search Player'</p>
-                          <p>- You'll be connected to a random player</p>
-                          <p>- On connection both username (i.e. your's vs opponent's) will be on the left side</p>
-                          <p>- Now you can start filling the cells of the matrix (with Blue color) as fast as you can and same will do the opponent (with Red color)</p>
-                          <p>- Whichever player would covered more cells than opponent will be the winner</p>
-                          <p>- you will be notified if opponent has left the game, so you can again search for new player</p>
-                          <p>- Let's play, have fun!</p>
-                      </div>
-                    </div>
+        <div class="ui sidebar right wide vertical menu chat">
+            <div class="ui feed">
+              <div class="event">
+                <div class="label">
+                  <img src="./images/bot.png">
+                </div>
+                <div class="content">
+                  <div class="summary">
+                    <p>The MatriX Bot</p>
+                  </div>
+                  <div class="extra text">
+                      <p>
+                          Hello! Welcome to The MatriX. I'm The MatriX Bot, will update you for all matches results.
+                          You can message here, which would be readable for all connected user to this web app.
+                      </p>
                   </div>
                 </div>
+              </div>
+            </div>
                 <div class="ui feed" id="messages"></div>
-            </div><br>
+            <br>
             <form class="ui form" method="post" id="message_form">
                 <div class="ui input focus">
-                  <input type="text" style="width: 350px" name="message" autocomplete="off" placeholder="Type a message...">
+                  <input type="text" style="width: 320px" name="message" autocomplete="off" placeholder="Type a message...">
                 </div>
             </form>
         </div>
+        <div class="ui sidebar left wide vertical menu chat">
+                <div class="ui feed">
+                  <div class="event">
+                    <div class="content">
+                      <div class="summary">
+                        <h2>How to play</h2>
+                      </div>
+                      <div class="extra text">
+                          <h4>
+                          <p>- Search player via 'Search' tab</p>
+                          <p>- You'll be connected to a random player</p>
+                          <p>- On connection his/her username will be shown on third tab</p>
+                          <p>- Now Start filling the cells of the matrix (Your Color: Blue)</p>
+                          <p>- Whichever player would covered more cells than opponent will be the winner</p>
+                          <p>- You also will be notified if opponent has quit the game in between via third tab, so you can again search for new random player</p>
+                          <p>- You can message via 'Chat' tab, which is common chat group for all players</p>
+                          <p>- Let's play, have fun!</p></h4>
+                      </div>
+                    </div>
+                  </div>
+              </div><br><br><br><br><br><br><br><br>
+                <div class="extra content">
+                  <div class="ui developer">
+                      <p class="devtag">Developed by <a href="https://twitter.com/hacktushar" target="_blank">Tushar Soni</a></p>
+                  </div>
+                </div>
+        </div>
+    </div>
 </body>
 
 </html>

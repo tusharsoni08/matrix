@@ -71,7 +71,8 @@ io.sockets.on('connection', function(client){
 
     client.on('close:client', function(data) {
         //console.log(data.username + " trying to left room: " + data.room);
-        var message = data.username + " has left game";
+        //var message = data.username + " quit game";
+        var message = "quit";
         io.sockets.in(data.room).emit('deleteData:server', {
             room: data.room,
             message: message

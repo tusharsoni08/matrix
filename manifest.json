@@ -1,0 +1,13 @@
+{
+  "short_name": "The Matrix",
+  "name": "The Matrix Game App",
+  "icons": [
+    {
+      "src": "./images/bot.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "index.html",
+  "display": "standalone"
+}

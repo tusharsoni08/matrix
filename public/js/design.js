@@ -1,5 +1,5 @@
 $(function() {
-    $("#search").removeClass("loading");
+    $("#search").removeClass("loader");
     $("#search").prop("disabled", false);
     if (typeof(Storage) != "undefined") {
         if (localStorage.username === undefined) {
@@ -13,6 +13,16 @@ $(function() {
     } else {
         window.alert("Sorry! Your browser Not Support This Game :(\n Use Firefox, Chrome For Better Experience. ")
     }
+    $(".openchat").on('click', function(event) {
+        $('.ui.sidebar.right')
+          .sidebar('toggle')
+        ;
+    });
+    $(".rules").on('click', function(event) {
+        $('.ui.sidebar.left')
+          .sidebar('toggle')
+        ;
+    });
     var socket = io.connect(window.location.href);
     var username = localStorage.username;
     var playerName = "";
@@ -31,16 +41,16 @@ $(function() {
         localStorage.room = data.room;
         room = localStorage.room;
         localStorage.status = data.status;
-        $("#search").removeClass("loading");
+        $("#search").removeClass("loader");
         $("#search").prop("disabled", false );
         if(username == data.user1){
-            document.getElementById("me").innerHTML = username;
-            document.getElementById("vs").innerHTML = "vs";
+            //document.getElementById("me").innerHTML = username;
+            //document.getElementById("vs").innerHTML = "vs";
             document.getElementById("you").innerHTML = data.user2;
             playerName = data.user2;
         }else if(username == data.user2){
-            document.getElementById("me").innerHTML = username;
-            document.getElementById("vs").innerHTML = "vs";
+            //document.getElementById("me").innerHTML = username;
+            //document.getElementById("vs").innerHTML = "vs";
             document.getElementById("you").innerHTML = data.user1;
             playerName = data.user1;
         }
@@ -62,8 +72,8 @@ $(function() {
                 check: check
             });
             localStorage.check = "";
-            document.getElementById("me").innerHTML = "";
-            document.getElementById("vs").innerHTML = "";
+            //document.getElementById("me").innerHTML = "";
+            //document.getElementById("vs").innerHTML = "";
             document.getElementById("you").innerHTML = "";
             playerName = "";
         }
@@ -82,7 +92,7 @@ $(function() {
     $("#search").on('click', function(event) {
         event.preventDefault();
         document.getElementById("opponent").innerHTML = "";
-        $("#search").addClass("loading");
+        $("#search").addClass("loader");
         $("#search").prop("disabled", true );
         if(localStorage.status == "busy"){
             ResetTable();
@@ -94,8 +104,8 @@ $(function() {
         var tmp = localStorage.check;
         check = tmp + localStorage.search;
         localStorage.check = check;
-        document.getElementById("me").innerHTML = "";
-        document.getElementById("vs").innerHTML = "";
+        //document.getElementById("me").innerHTML = "";
+        //document.getElementById("vs").innerHTML = "";
         document.getElementById("you").innerHTML = "";
         playerName = "";
         if(room != null){
