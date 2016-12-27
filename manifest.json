@@ -3,7 +3,7 @@
   "name": "The Matrix Game App",
   "icons": [
     {
-      "src": "./images/bot.png",
+      "src": "public/images/bot.png",
       "sizes": "96x96",
       "type": "image/png"
     }
