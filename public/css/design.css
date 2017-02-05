@@ -6,6 +6,12 @@ a {
     text-decoration:none;
     width:auto;
 }
+@media only screen and (min-width:1000px){
+    .mobile{
+        width: 500px;
+        margin-left: 31%;
+    }
+}
 #chess_board {
     border:0.5px solid #777;
     cursor: crosshair;
