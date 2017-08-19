@@ -33,12 +33,12 @@
               <img src="./images/winner.png">
             </div>
             <div class="description">
-              <div class="ui large header" align="center">Congratulations! You Win</div>
+              <div class="ui large header" align="center">You Win</div>
             </div>
           </div>
           <div class="actions">
             <div class="ui black deny button" align="center">
-              Yeah, Hurrrry!!
+              Yeah, Hurrrry!
             </div>
           </div>
         </div>
@@ -52,121 +52,63 @@
               <img src="./images/loser.png">
             </div>
             <div class="description">
-              <div class="ui large header" align="center">Sorry! You Lose</div>
+              <div class="ui large header" align="center">You Lose</div>
             </div>
           </div>
           <div class="actions">
             <div class="ui black deny button" align="center">
-              Oops! I'll try again..
+              Try again..
             </div>
           </div>
         </div>
         <div class="row" align="center">
-            <!--<div class="ui large header column">
-                <h1>T</h1><h2>HE</h2>  <h1>M</h1><h2>ATRI</h2><h1 id="x">X</h1>
-            </div>-->
             <div class="ui four item menu">
               <a class="item rules"><i class="sidebar icon"></i>Rules</a>
               <a class="item"><span class="ui active small inverted centered " id="search"><i class="search icon"></i> Search</span></a>
               <a class="item live">
                   <i class="user icon"></i>
-                  <!--<span id="me"></span>
-                  <span id="vs"></span>-->
                   <span id="you"></span>&nbsp;
                   <span id="opponent"></span>
               </a>
-              <a class="item openchat"><i class="comments icon"></i>Chat</a>
             </div>
         </div>
-        <!--<div class="four wide column">
-            <div class="ui card leftab">
-                <button id="search" class="ui button">Click to Search Player</button>
-                <div class="ui content">
-                    <div class="ui large header" align="center">
-                        <p id="me"></p>
-                        <p id="vs"></p>
-                        <p id="you"></p>
-                    </div>
-                    <div class="ui medium header" align="center">
-                        <p id="opponent"></p>
-                    </div>
-                </div>
-                <div class="extra content">
-                  <div class="ui developer">
-                      <p class="devtag">Developed by <a href="https://twitter.com/hacktushar" target="_blank">Tushar Soni</a></p>
-                  </div>
-                </div>
-            </div>
-        </div>-->
         <div class="sixteen wide column">
             <table id="chess_board" cellpadding="0" cellspacing="0" class="ui table unstackable">
-                <tr>
-                    <td id="A7"></td>
-                    <td id="B7"></td>
-                    <td id="C7"></td>
-                    <td id="D7"></td>
-                    <td id="E7"></td>
-                    <td id="F7"></td>
-                    <td id="G7"></td>
-                </tr>
-                <tr>
-                    <td id="A6"></td>
-                    <td id="B6"></td>
-                    <td id="C6"></td>
-                    <td id="D6"></td>
-                    <td id="E6"></td>
-                    <td id="F6"></td>
-                    <td id="G6"></td>
-                </tr>
-                <tr>
-                    <td id="A5"></td>
-                    <td id="B5"></td>
-                    <td id="C5"></td>
-                    <td id="D5"></td>
-                    <td id="E5"></td>
-                    <td id="F5"></td>
-                    <td id="G5"></td>
-                </tr>
+                
                 <tr>
                     <td id="A4"></td>
                     <td id="B4"></td>
                     <td id="C4"></td>
                     <td id="D4"></td>
-                    <td id="E4"></td>
-                    <td id="F4"></td>
-                    <td id="G4"></td>
                 </tr>
                 <tr>
                     <td id="A3"></td>
                     <td id="B3"></td>
                     <td id="C3"></td>
                     <td id="D3"></td>
-                    <td id="E3"></td>
-                    <td id="F3"></td>
-                    <td id="G3"></td>
                 </tr>
                 <tr>
                     <td id="A2"></td>
                     <td id="B2"></td>
                     <td id="C2"></td>
                     <td id="D2"></td>
-                    <td id="E2"></td>
-                    <td id="F2"></td>
-                    <td id="G2"></td>
                 </tr>
                 <tr>
                     <td id="A1"></td>
                     <td id="B1"></td>
                     <td id="C1"></td>
                     <td id="D1"></td>
-                    <td id="E1"></td>
-                    <td id="F1"></td>
-                    <td id="G1"></td>
                 </tr>
             </table>
-        </div>
-        <div class="ui sidebar right vertical menu chat">
-            <div class="ui feed">
+            <div class="ui menu chat">
+              <div class="ui feed">
+              <form class="ui form" method="post" id="message_form">
+                  <div class="ui input focus">
+                    <input type="text" style="margin-right: 300px;" name="message" autocomplete="off" placeholder="Type a message...">
+                  </div>
+              </form>
+              <br>
+              <div class="ui feed" id="messages"></div>
               <div class="event">
                 <div class="label">
                   <img src="./images/bot.png">
@@ -183,15 +125,12 @@
                   </div>
                 </div>
               </div>
+
             </div>
-                <div class="ui feed" id="messages"></div>
-            <br>
-            <form class="ui form" method="post" id="message_form">
-                <div class="ui input focus">
-                  <input type="text" style="width: 230px" name="message" autocomplete="off" placeholder="Type a message...">
-                </div>
-            </form>
+            
         </div>
+        </div>
+        
         <div class="ui sidebar left vertical menu chat">
                 <div class="ui feed">
                   <div class="event">

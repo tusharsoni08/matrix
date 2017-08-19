@@ -18,10 +18,9 @@ a {
 }
 #chess_board td {
     background:#fff;
-    height:60px;
+    height:90px;
     text-align:center;
     vertical-align:middle;
-    width:80px;
     border:0.5px solid #aaa;
 }
 .chat{

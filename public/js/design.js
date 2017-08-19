@@ -44,13 +44,9 @@ $(function() {
         $("#search").removeClass("loader");
         $("#search").prop("disabled", false );
         if(username == data.user1){
-            //document.getElementById("me").innerHTML = username;
-            //document.getElementById("vs").innerHTML = "vs";
             document.getElementById("you").innerHTML = data.user2;
             playerName = data.user2;
         }else if(username == data.user2){
-            //document.getElementById("me").innerHTML = username;
-            //document.getElementById("vs").innerHTML = "vs";
             document.getElementById("you").innerHTML = data.user1;
             playerName = data.user1;
         }
@@ -72,8 +68,6 @@ $(function() {
                 check: check
             });
             localStorage.check = "";
-            //document.getElementById("me").innerHTML = "";
-            //document.getElementById("vs").innerHTML = "";
             document.getElementById("you").innerHTML = "";
             playerName = "";
         }
@@ -82,7 +76,6 @@ $(function() {
 
     socket.on('deleteData:server', function(data) {
         if((localStorage.status == "busy") && (localStorage.room == data.room)){
-            //localStorage.room = undefined;
             localStorage.status = "free";
             document.getElementById("opponent").innerHTML = data.message;
             ResetTable();
@@ -104,8 +97,6 @@ $(function() {
         var tmp = localStorage.check;
         check = tmp + localStorage.search;
         localStorage.check = check;
-        //document.getElementById("me").innerHTML = "";
-        //document.getElementById("vs").innerHTML = "";
         document.getElementById("you").innerHTML = "";
         playerName = "";
         if(room != null){
@@ -143,7 +134,7 @@ $(function() {
                     username: username,
                     boxID: boxID
                 });
-                if((totalHit == 49) && (myHit > playerHit)){
+                if((totalHit == 16) && (myHit > playerHit)){
                     $('.win.small.modal')
                       .modal('show')
                     ;
@@ -157,9 +148,9 @@ $(function() {
                         username: "The MatriX Bot",
                         bot: "bot"
                     });
-                    $("#messages").append('<div class="event"><div class="label"><img src="./images/bot.png"></div><div class="content"><div class="summary"><p id="username">' + 'The MatriX Bot' + '</p></div><div class="extra text">' + message + '</div></div></div>');
+                    $("#messages").prepend('<div class="event"><div class="label"><img src="./images/bot.png"></div><div class="content"><div class="summary"><p id="username">' + 'The MatriX Bot' + '</p></div><div class="extra text">' + message + '</div></div></div>');
                     $(".chat").animate({ scrollTop: $(".chat")[0].scrollHeight }, "slow");
-                }else if(totalHit == 49){
+                }else if(totalHit == 16){
                     $('.lose.small.modal')
                       .modal('show')
                     ;
@@ -195,10 +186,10 @@ $(function() {
 
     socket.on('message:server', function(data) {
         if(data.bot != "bot"){
-            $("#messages").append('<div class="event"><div class="label"><img src="./images/profile.png"></div><div class="content"><div class="summary"><p id="username">' + data.username + '</p></div><div class="extra text">' + data.message + '</div></div></div>');
+            $("#messages").prepend('<div class="event"><div class="label"><img src="./images/profile.png"></div><div class="content"><div class="summary"><p id="username">' + data.username + '</p></div><div class="extra text">' + data.message + '</div></div></div>');
             $(".chat").animate({ scrollTop: $(".chat")[0].scrollHeight }, "slow");
         }else{
-            $("#messages").append('<div class="event"><div class="label"><img src="./images/bot.png"></div><div class="content"><div class="summary"><p id="username">' + data.username + '</p></div><div class="extra text">' + data.message + '</div></div></div>');
+            $("#messages").prepend('<div class="event"><div class="label"><img src="./images/bot.png"></div><div class="content"><div class="summary"><p id="username">' + data.username + '</p></div><div class="extra text">' + data.message + '</div></div></div>');
             $(".chat").animate({ scrollTop: $(".chat")[0].scrollHeight }, "slow");
         }
 
@@ -214,7 +205,7 @@ $(function() {
                 username: username,
                 bot: "none"
             });
-            $("#messages").append('<div class="event"><div class="label"><img src="./images/profile.png"></div><div class="content"><div class="summary"><p id="username">' + username + '</p></div><div class="extra text">' + message + '</div></div></div>');
+            $("#messages").prepend('<div class="event"><div class="label"><img src="./images/profile.png"></div><div class="content"><div class="summary"><p id="username">' + username + '</p></div><div class="extra text">' + message + '</div></div></div>');
             $(".chat").animate({ scrollTop: $(".chat")[0].scrollHeight }, "slow");
             $('[name="message"]').val('');
         }
@@ -226,7 +217,7 @@ $(function() {
         playerHit = 0;
         totalHit = 0;
         var tempid;
-        for(i=1; i<8; i++){
+        for(i=1; i<=4; i++){
             tempid = 'A' + i;
             $(tempid).on('click');
             var p1 = document.getElementById(tempid);
@@ -246,21 +237,6 @@ $(function() {
             $(tempid).on('click');
             var p4 = document.getElementById(tempid);
             p4.style.backgroundColor = "#ffffff";
-
-            tempid = 'E' + i;
-            $(tempid).on('click');
-            var p5 = document.getElementById(tempid);
-            p5.style.backgroundColor = "#ffffff";
-
-            tempid = 'F' + i;
-            $(tempid).on('click');
-            var p6 = document.getElementById(tempid);
-            p6.style.backgroundColor = "#ffffff";
-
-            tempid = 'G' + i;
-            $(tempid).on('click');
-            var p7 = document.getElementById(tempid);
-            p7.style.backgroundColor = "#ffffff";
         }
     }
 });
