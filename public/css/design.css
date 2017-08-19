@@ -24,10 +24,8 @@ a {
     border:0.5px solid #aaa;
 }
 .chat{
-    overflow: auto;
-    overflow-x: hidden;
-    width: auto;
-    height: auto;
+    text-align:center;
+    vertical-align:middle;
     padding-right: 12px;
     padding-left: 12px;
     padding-top: 14px;
