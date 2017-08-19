@@ -150,6 +150,14 @@ $(function() {
                     });
                     $("#messages").prepend('<div class="event"><div class="label"><img src="./images/bot.png"></div><div class="content"><div class="summary"><p id="username">' + 'The MatriX Bot' + '</p></div><div class="extra text">' + message + '</div></div></div>');
                     $(".chat").animate({ scrollTop: $(".chat")[0].scrollHeight }, "slow");
+                }else if((totalHit == 16) && (myHit == playerHit)){
+                    $('.tie.small.modal')
+                      .modal('show')
+                    ;
+                    socket.emit('result:client', {
+                        result: "tie",
+                        room: room
+                    });
                 }else if(totalHit == 16){
                     $('.lose.small.modal')
                       .modal('show')
@@ -179,6 +187,10 @@ $(function() {
             ;
         }else if(data.result == "lose"){
             $('.win.small.modal')
+              .modal('show')
+            ;
+        }else if(data.result == "tie"){
+            $('.tie.small.modal')
               .modal('show')
             ;
         }
