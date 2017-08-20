@@ -27,7 +27,7 @@ io.sockets.on('connection', function(client){
         client.join(chatroom);
         //console.log("connectedUser: " + connectedUser);
         var num = connectedUser;
-        client.to(chatroom).broadcast.emit('connect:server', {
+        io.sockets.in(chatroom).emit('connect:server', {
             activeUser: num,
         });
     });
@@ -109,7 +109,11 @@ io.sockets.on('connection', function(client){
 
     client.on('disconnect', function () {
         if (connectedUser) {
-          --connectedUser;
+            --connectedUser;
+            var num = connectedUser;
+            io.sockets.in(chatroom).emit('connect:server', {
+            activeUser: num,
+        });
         }
     });
 
