@@ -207,6 +207,10 @@ $(function() {
 
     });
 
+    socket.on('connect:server', function(data) {
+        document.getElementById("activeUser").innerHTML = data.activeUser;
+    });
+
     $("#message_form").on('submit', function(event) {
         event.preventDefault();
         var $input = $('[name="message"]');
@@ -233,22 +237,22 @@ $(function() {
             tempid = 'A' + i;
             $(tempid).on('click');
             var p1 = document.getElementById(tempid);
-            p1.style.backgroundColor = "#ffffff";
+            p1.style.backgroundColor = "#f7f7f7";
 
             tempid = 'B' + i;
             $(tempid).on('click');
             var p2 = document.getElementById(tempid);
-            p2.style.backgroundColor = "#ffffff";
+            p2.style.backgroundColor = "#f7f7f7";
 
             tempid = 'C' + i;
             $(tempid).on('click');
             var p3 = document.getElementById(tempid);
-            p3.style.backgroundColor = "#ffffff";
+            p3.style.backgroundColor = "#f7f7f7";
 
             tempid = 'D' + i;
             $(tempid).on('click');
             var p4 = document.getElementById(tempid);
-            p4.style.backgroundColor = "#ffffff";
+            p4.style.backgroundColor = "#f7f7f7";
         }
     }
 });

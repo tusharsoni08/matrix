@@ -26,6 +26,10 @@ io.sockets.on('connection', function(client){
         connectedUser = connectedUser + 1;
         client.join(chatroom);
         //console.log("connectedUser: " + connectedUser);
+        var num = connectedUser;
+        client.to(chatroom).broadcast.emit('connect:server', {
+            activeUser: num,
+        });
     });
 
     client.on('join:client', function(data) {

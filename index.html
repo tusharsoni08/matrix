@@ -20,9 +20,8 @@
 </head>
 
 <body>
-    <div class="mobile">
 
-    <div class="ui grid ">
+    <div class="ui grid mobile only">
         <div class="ui win small modal">
           <i class="close icon"></i>
           <div class="large header" align="center">
@@ -77,16 +76,20 @@
             </div>
           </div>
         </div>
-        <div class="row" align="center">
-            <div class="ui three item menu">
-              <a class="item rules"><i class="sidebar icon"></i>Rules</a>
-              <a class="item"><span class="ui active small inverted centered " id="search"><i class="search icon"></i> Search</span></a>
-              <a class="item live">
+        <div class="row">
+            <div class="ui two item menu">
+              <!-- <a class="item rules"><i class="sidebar icon"></i></a> -->
+              <a class="item"><h5><span class="ui active small inverted centered " id="search"><i class="search icon"></i> Find Player</span></h5></a>
+              <a class="item live"><h5>
                   <i class="user icon"></i>
+                  <span>You Vs&nbsp;</span>
                   <span id="you"></span>&nbsp;
-                  <span id="opponent"></span>
+                  <span id="opponent"></span></h5>
               </a>
             </div>
+        </div>
+        <div>
+          <p style="float: left;">&nbsp;Active Users: <span id="activeUser"></span></p>
         </div>
         <div class="sixteen wide column">
             <table id="chess_board" cellpadding="0" cellspacing="0" class="ui table unstackable">
@@ -118,7 +121,7 @@
             <div class="ui menu chat">
               <div class="ui feed">
               <form class="ui form" method="post" id="message_form">
-                  <div class="ui input focus msg">
+                  <div class="ui input msg">
                     <input type="text" name="message" autocomplete="off" placeholder="Type a message...">
                   </div>
               </form>
@@ -167,12 +170,16 @@
               </div><br><br><br><br><br>
                 <div class="extra content">
                   <div class="ui developer">
-                      <p class="devtag">Developed by <a href="https://twitter.com/hacktushar" target="_blank">Tushar Soni</a></p>
+                      <p class="devtag">Developed by Tushar Soni<!--<a href="https://twitter.com/hacktushar" target="_blank">Tushar Soni</a>--></p>
                   </div>
                 </div>
         </div>
     </div>
-</div>
+
+    <div class="ui grid computer only" style="padding-left: 10px; padding-top: 5px;">
+      <h1>Only Mobile Supported!</h1>
+    </div>
+
 </body>
 
 </html>

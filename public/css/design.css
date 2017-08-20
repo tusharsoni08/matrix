@@ -6,36 +6,39 @@ a {
     text-decoration:none;
     width:auto;
 }
-@media only screen and (min-width:1000px){
-    .mobile{
-        width: 400px;
-        height: 400px;
-        margin-left: 30%;
-    }
-}
 #chess_board {
-    border:0.5px solid #777;
     cursor: crosshair;
-    height:300px;
-
-    
+    background: #374046;
+    border: 2px solid #999;
+    border-color: #00bbd3;
 }
-#chess_board td {
-    background:#fff;
-    border:0.5px solid #777;
+div {
+    display: block;
+}
+table {
+  width: 100%;
+}
+td {
+  width: 25%;
+}
+td:after {
+  content: '';
+  display: block;
+  margin-top: 100%;
+}
+#chess_board td{
+    background: #f7f7f7;
+    border: 1px solid #00bbd3;
 }
 .chat{
     text-align: center;
-    padding-right: 20px;
+    padding-right: 15px;
     padding-left: 12px;
     padding-top: 8px;
     padding-bottom: 10px;
 }
 .msg{
     width: 100%;
-}
-h1, h2 {
-    display: inline;
 }
 #x{
     font-style: italic;
