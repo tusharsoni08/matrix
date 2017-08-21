@@ -16,6 +16,7 @@ app.get('/', function(req, res) {
 
 var connectedUser = 0;
 var searchUser = [];
+var scoreList = {};
 var count = 0;
 var room = "room" + count;
 var chatroom = "chatroom";
@@ -97,6 +98,31 @@ io.sockets.on('connection', function(client){
         client.to(data.room).broadcast.emit('result:server', {
             result: data.result
         });
+
+        if(data.result == "win"){
+            var size = Object.keys(scoreList).length;;
+            var username = data.username;
+            var score = data.score;
+
+            if(username in scoreList){
+                if(scoreList[username] < score){
+                    scoreList[username] = score;
+                }
+            }else{
+                scoreList[username] = score;
+            }
+
+            var array=[];
+            for(a in scoreList){
+                array.push([a, scoreList[a]])
+            }
+            array.sort(function(a,b){return b[1] - a[1]});
+
+            io.sockets.in(chatroom).emit('scoreResult:server', {
+                rankedList: array
+            });
+        }
+        
     });
 
     client.on('message:client', function(data) {

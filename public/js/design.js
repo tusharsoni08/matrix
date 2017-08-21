@@ -3,11 +3,13 @@ $(function() {
     $("#search").prop("disabled", false);
     if (typeof(Storage) != "undefined") {
         if (localStorage.username === undefined) {
-            var uname = prompt("Please enter Username", "");
+            var uname = prompt("Enter Username", "");
             if(uname == null){
-                localStorage.username = "Player"
+                localStorage.username = "Player";
+                localStorage.score = 0;
             }else{
                 localStorage.username = uname;
+                localStorage.score = 0;
             }
         }
     } else {
@@ -34,6 +36,7 @@ $(function() {
             socket.emit('connect:client', {
                 username: username
             });
+            document.getElementById("myScore").innerHTML = localStorage.score;
         }
     });
 
@@ -135,12 +138,17 @@ $(function() {
                     boxID: boxID
                 });
                 if((totalHit == 16) && (myHit > playerHit)){
+                    localStorage.score = Number(localStorage.score) + 5;
+                    document.getElementById("myScore").innerHTML = localStorage.score;
+                    var score = localStorage.score;
                     $('.win.small.modal')
                       .modal('show')
                     ;
                     socket.emit('result:client', {
                         result: "win",
-                        room: room
+                        room: room,
+                        score: score,
+                        username: username
                     });
                     var message = '<p>@' + username + ' VS @' + playerName + '</p>' + '<p>W!NNER: @' + username + '</p>' + '<p>LO$ER: @' + playerName + '</p>';
                     socket.emit('message:client', {
@@ -194,6 +202,22 @@ $(function() {
               .modal('show')
             ;
         }
+    });
+
+    socket.on('scoreResult:server', function(data) {
+        console.log(data.rankedList);
+        var rankData = "";
+        for (var i = 0; i < data.rankedList.length; i++) {
+            var rank =  i+1;
+            rankData = rankData + rank + ". " + data.rankedList[i][0] + " \n";
+        }
+        console.log(rankData);
+        socket.emit('message:client', {
+            message: rankData,
+            username: "The MatriX Bot",
+            bot: "bot"
+        });
+
     });
 
     socket.on('message:server', function(data) {
