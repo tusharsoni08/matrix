@@ -23,64 +23,64 @@
 
     <div class="ui grid mobile only">
         <div class="ui win small modal">
-          <i class="close icon"></i>
-          <div class="large header" align="center">
-            GAME OVER
-          </div>
-          <div class="image content">
-            <div class="ui small image">
-              <img src="./images/winner.png">
+            <i class="close icon"></i>
+            <div class="large header" align="center">
+                GAME OVER
             </div>
-            <div class="description">
-              <div class="ui large header" align="center">You Win</div>
+            <div class="image content">
+                <div class="ui small image">
+                    <img src="./images/winner.png">
+                </div>
+                <div class="description">
+                    <div class="ui large header" align="center">You Win</div>
+                </div>
             </div>
-          </div>
-          <div class="actions">
-            <div class="ui black deny button" align="center">
-              Well Played!
+            <div class="actions">
+                <div class="ui black deny button" align="center">
+                    Well Played!
+                </div>
             </div>
-          </div>
         </div>
         <div class="ui lose small modal">
-          <i class="close icon"></i>
-          <div class="large header" align="center">
-            GAME OVER
-          </div>
-          <div class="image content">
-            <div class="ui small image">
-              <img src="./images/loser.png">
+            <i class="close icon"></i>
+            <div class="large header" align="center">
+                GAME OVER
             </div>
-            <div class="description">
-              <div class="ui large header" align="center">You Lose</div>
+            <div class="image content">
+                <div class="ui small image">
+                    <img src="./images/loser.png">
+                </div>
+                <div class="description">
+                    <div class="ui large header" align="center">You Lose</div>
+                </div>
             </div>
-          </div>
-          <div class="actions">
-            <div class="ui black deny button" align="center">
-              Try again..
+            <div class="actions">
+                <div class="ui black deny button" align="center">
+                    Try again..
+                </div>
             </div>
-          </div>
         </div>
         <div class="ui tie small modal">
-          <i class="close icon"></i>
-          <div class="large header" align="center">
-            GAME DRAW
-          </div>
-          <div class="image content">
-            <div class="description">
-              <div class="ui large header" align="center">It's Tie</div>
+            <i class="close icon"></i>
+            <div class="large header" align="center">
+                GAME DRAW
             </div>
-          </div>
-          <div class="actions">
-            <div class="ui black deny button" align="center">
-              Let's Retry
+            <div class="image content">
+                <div class="description">
+                    <div class="ui large header" align="center">It's Tie</div>
+                </div>
             </div>
-          </div>
+            <div class="actions">
+                <div class="ui black deny button" align="center">
+                    Let's Retry
+                </div>
+            </div>
         </div>
         <div class="row">
             <div class="ui two item menu">
-              <!-- <a class="item rules"><i class="sidebar icon"></i></a> -->
-              <a class="item"><h5><span class="ui active small inverted centered " id="search"><i class="search icon"></i> Find Player</span></h5></a>
-              <a class="item live"><h5>
+                <!-- <a class="item rules"><i class="sidebar icon"></i></a> -->
+                <a class="item"><h5><span class="ui active small inverted centered " id="search"><i class="search icon"></i> Find Player</span></h5></a>
+                <a class="item live"><h5>
                   <i class="user icon"></i>
                   <span>You Vs&nbsp;</span>
                   <span id="you"></span>&nbsp;
@@ -89,7 +89,8 @@
             </div>
         </div>
         <div>
-          <p style="float: left;">&nbsp;Active Users: <span id="activeUser"></span></p>
+            <p style="float: left;">&nbsp;Active Users: <span id="activeUser"></span>
+            </p>
         </div>
         <div class="sixteen wide column">
             <table id="chess_board" cellpadding="0" cellspacing="0" class="ui table unstackable">
@@ -119,43 +120,42 @@
                 </tr>
             </table>
             <div class="ui menu chat">
-              <div class="ui feed">
-              <form class="ui form" method="post" id="message_form">
-                  <div class="ui input msg">
-                    <input type="text" name="message" autocomplete="off" placeholder="Type a message...">
-                  </div>
-              </form>
-              <br>
-              <div class="ui feed" id="messages"></div>
-              <div class="event">
-                <div class="label">
-                  <img src="./images/bot.png">
-                </div>
-                <div class="content">
-                  <div class="summary">
-                    <p>The MatriX Bot</p>
-                  </div>
-                  <div class="extra text">
-                      <p>
-                          Hello! Welcome to The MatriX. I'm The MatriX Bot, will update you for all matches results.
-                          You can message here, which would be readable for all connected user to this web app.
-                      </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="ui sidebar left vertical menu chat">
                 <div class="ui feed">
-                  <div class="event">
+                    <form class="ui form" method="post" id="message_form">
+                        <div class="ui input msg">
+                            <input type="text" name="message" autocomplete="off" placeholder="Type a message...">
+                        </div>
+                    </form>
+                    <br>
+                    <div class="ui feed" id="messages"></div>
+                    <div class="event">
+                        <div class="label">
+                            <img src="./images/bot.png">
+                        </div>
+                        <div class="content">
+                            <div class="summary">
+                                <p>The MatriX Bot</p>
+                            </div>
+                            <div class="extra text">
+                                <p>
+                                    Hello! Welcome to The MatriX. I'm The MatriX Bot, will update you for all matches results. You can message here, which would be readable for all connected user to this web app.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui sidebar left vertical menu chat">
+            <div class="ui feed">
+                <div class="event">
                     <div class="content">
-                      <div class="summary">
-                        <h2>How to play</h2>
-                      </div>
-                      <div class="extra text">
-                          <h4>
+                        <div class="summary">
+                            <h2>How to play</h2>
+                        </div>
+                        <div class="extra text">
+                            <h4>
                           <p>- Search player via 'Search' tab</p>
                           <p>- You'll be connected to a random player only if he/she is also searching</p>
                           <p>- On connection his/her username will be shown on third profile tab</p>
@@ -164,20 +164,27 @@
                           <p>- You will also be notified if opponent has quit the game in between via third profile tab (i.e. [his/her username] quit), so you can again search for new random player</p>
                           <p>- You can message via 'Chat' tab, which is public chat group for all players</p>
                           <p>- Let's play, have fun!</p></h4>
-                      </div>
+                        </div>
                     </div>
-                  </div>
-              </div><br><br><br><br><br>
-                <div class="extra content">
-                  <div class="ui developer">
-                      <p class="devtag">Developed by <!--<a href="" target="_blank">Tushar Soni</a>--></p>
-                  </div>
                 </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="extra content">
+                <div class="ui developer">
+                    <p class="devtag">Developed by
+                        <!--<a href="" target="_blank">Tushar Soni</a>-->
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="ui grid computer only" style="padding-left: 10px; padding-top: 5px;">
-      <h1>Only Mobile Supported!</h1>
+        <h1>Only Mobile Supported!</h1>
     </div>
 
 </body>
