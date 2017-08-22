@@ -105,7 +105,7 @@ io.sockets.on('connection', function(client){
             var score = data.score;
 
             if(username in scoreList){
-                if(scoreList[username] < score){
+                if(scoreList[username] <= score){
                     scoreList[username] = score;
                 }
             }else{
@@ -118,8 +118,16 @@ io.sockets.on('connection', function(client){
             }
             array.sort(function(a,b){return b[1] - a[1]});
 
+            var sortedListLength = array.length;
+            var rankData = "<p><b>Leaderboard</b></p>";
+            var rank;
+            for (var i = 0; i < sortedListLength; i++) {
+                rank = i+1;
+                rankData = rankData + "<p>Rank #" + rank + ". " + array[i][0] + " (" + array[i][1] + " Points)</p>";
+            }
+
             io.sockets.in(chatroom).emit('scoreResult:server', {
-                rankedList: array
+                rankData: rankData
             });
         }
         
@@ -138,8 +146,8 @@ io.sockets.on('connection', function(client){
             --connectedUser;
             var num = connectedUser;
             io.sockets.in(chatroom).emit('connect:server', {
-            activeUser: num,
-        });
+                activeUser: num,
+            });
         }
     });
 

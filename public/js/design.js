@@ -150,7 +150,7 @@ $(function() {
                         score: score,
                         username: username
                     });
-                    var message = '<p>@' + username + ' VS @' + playerName + '</p>' + '<p>W!NNER: @' + username + '</p>' + '<p>LO$ER: @' + playerName + '</p>';
+                    var message = '<p>' + username + ' Vs ' + playerName + '</p>' + '<p>WINNER: ' + username + '</p>' + '<p>LOSER: ' + playerName + '</p>';
                     socket.emit('message:client', {
                         message: message,
                         username: "The MatriX Bot",
@@ -205,18 +205,9 @@ $(function() {
     });
 
     socket.on('scoreResult:server', function(data) {
-        console.log(data.rankedList);
-        var rankData = "";
-        for (var i = 0; i < data.rankedList.length; i++) {
-            var rank =  i+1;
-            rankData = rankData + rank + ". " + data.rankedList[i][0] + " \n";
-        }
-        console.log(rankData);
-        socket.emit('message:client', {
-            message: rankData,
-            username: "The MatriX Bot",
-            bot: "bot"
-        });
+        
+        $("#messages").prepend('<div class="event"><div class="label"><img src="./images/bot.png"></div><div class="content"><div class="summary"><p id="username">' + 'The MatriX Bot' + '</p></div><div class="extra text">' + data.rankData + '</div></div></div>');
+        $(".chat").animate({ scrollTop: $(".chat")[0].scrollHeight }, "slow");
 
     });
 
