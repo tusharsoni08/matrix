@@ -119,7 +119,7 @@ io.sockets.on('connection', function(client){
             array.sort(function(a,b){return b[1] - a[1]});
 
             var sortedListLength = array.length;
-            var rankData = "<p><b>Leaderboard</b></p>";
+            var rankData = "<p><u><b>Leaderboard</b></u></p>";
             var rank;
             for (var i = 0; i < sortedListLength; i++) {
                 rank = i+1;

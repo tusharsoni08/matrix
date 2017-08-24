@@ -5,10 +5,10 @@ $(function() {
         if (localStorage.username === undefined) {
             var uname = prompt("Enter Username", "");
             if(uname == null){
-                localStorage.username = "Player";
+                localStorage.username = "Anonymous";
                 localStorage.score = 0;
             }else{
-                localStorage.username = uname;
+                localStorage.username = uname.charAt(0).toUpperCase() + uname.slice(1, 10).toLowerCase();
                 localStorage.score = 0;
             }
         }
