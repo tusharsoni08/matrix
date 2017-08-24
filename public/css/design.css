@@ -55,3 +55,6 @@ a, .devtag{
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+.hidden {
+    visibility: hidden
+}

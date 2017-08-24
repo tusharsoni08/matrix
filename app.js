@@ -121,10 +121,19 @@ io.sockets.on('connection', function(client){
             var sortedListLength = array.length;
             var rankData = "<p><u><b>Leaderboard</b></u></p>";
             var rank;
-            for (var i = 0; i < sortedListLength; i++) {
-                rank = i+1;
-                rankData = rankData + "<p>Rank #" + rank + ". " + array[i][0] + " (" + array[i][1] + " Points)</p>";
+
+            if(sortedListLength > 10){
+                for (var i = 0; i < 10; i++) {
+                    rank = i+1;
+                    rankData = rankData + "<p>Rank #" + rank + ". " + array[i][0] + " (" + array[i][1] + " Points)</p>";
+                }
+            }else{
+                for (var i = 0; i < sortedListLength; i++) {
+                    rank = i+1;
+                    rankData = rankData + "<p>Rank #" + rank + ". " + array[i][0] + " (" + array[i][1] + " Points)</p>";
+                }
             }
+            
 
             io.sockets.in(chatroom).emit('scoreResult:server', {
                 rankData: rankData

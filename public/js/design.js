@@ -1,5 +1,6 @@
 $(function() {
     $("#search").removeClass("loader");
+    $("#toggl").removeClass("hidden");
     $("#search").prop("disabled", false);
     if (typeof(Storage) != "undefined") {
         if (localStorage.username === undefined) {
@@ -45,6 +46,7 @@ $(function() {
         room = localStorage.room;
         localStorage.status = data.status;
         $("#search").removeClass("loader");
+        $("#toggl").removeClass("hidden");
         $("#search").prop("disabled", false );
         if(username == data.user1){
             document.getElementById("you").innerHTML = data.user2;
@@ -89,6 +91,7 @@ $(function() {
         event.preventDefault();
         document.getElementById("opponent").innerHTML = "";
         $("#search").addClass("loader");
+        $("#toggl").addClass("hidden");
         $("#search").prop("disabled", true );
         if(localStorage.status == "busy"){
             ResetTable();
