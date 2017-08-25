@@ -119,19 +119,26 @@ io.sockets.on('connection', function(client){
             array.sort(function(a,b){return b[1] - a[1]});
 
             var sortedListLength = array.length;
-            var rankData = "<p><u><b>Leaderboard</b></u></p>";
+            var rankData = "";
             var rank;
 
             if(sortedListLength > 10){
+
                 for (var i = 0; i < 10; i++) {
                     rank = i+1;
                     rankData = rankData + "<p>Rank #" + rank + ". " + array[i][0] + " (" + array[i][1] + " Points)</p>";
                 }
+
+                rankData = "<p><u><b>Leaderboard</b></u> [TOP 10]</p>" + rankData;
+
             }else{
+
                 for (var i = 0; i < sortedListLength; i++) {
                     rank = i+1;
                     rankData = rankData + "<p>Rank #" + rank + ". " + array[i][0] + " (" + array[i][1] + " Points)</p>";
                 }
+
+                rankData = "<p><u><b>Leaderboard</b></u></p>" + rankData;
             }
             
 
