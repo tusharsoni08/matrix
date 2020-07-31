@@ -7,7 +7,7 @@ var io = require('socket.io').listen(server);
 var path = require('path')
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(app.router);
+//app.use(app.router);
 
 // index.html
 app.get('/', function(req, res) {
